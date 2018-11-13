@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, render_template, abort
+from flask import Flask, url_for, redirect, render_template_string, render_template, abort
 app = Flask(__name__)
 @app.route('/')
 def hello_world():
@@ -7,7 +7,7 @@ def hello_world():
             <h1>Serving from flask</h1>
         </html>
         """
-    return html 
+    return redirect(url_for('hello_user'))
 @app.route('/template-string')
 def hello_user():
     user = "asrar"
@@ -40,6 +40,7 @@ def find_color(color_name):
         abort(404)
     else:
         return "Color Found"
+@app.route('/
 @app.errorhandler(404)
 def not_found(error):
     return render_template('404.html'), 404
