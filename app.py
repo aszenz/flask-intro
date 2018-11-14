@@ -40,7 +40,6 @@ def find_color(color_name):
         abort(404)
     else:
         return "Color Found"
-@app.route('/
 @app.errorhandler(404)
 def not_found(error):
     return render_template('404.html'), 404
